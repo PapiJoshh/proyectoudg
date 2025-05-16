@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pagos - Residencial Los Robles</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+    .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 5px #ccc; }
+    label { display: block; margin-top: 10px; }
+    input, select, button { width: 100%; padding: 8px; margin-top: 5px; border-radius: 5px; border: 1px solid #ccc; }
+    button { background-color: #007acc; color: white; border: none; cursor: pointer; margin-top: 15px; }
+    button:hover { background-color: #005fa3; }
+    a { display: block; margin-top: 20px; text-align: center; color: #007acc; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Pagos y Cuotas</h2>
+    <form id="form-pagos">
+      <label for="mes-pago">Mes a pagar:</label>
+      <select id="mes-pago" required>
+        <option value="">Seleccione...</option>
+        <option value="enero">Enero</option>
+        <option value="febrero">Febrero</option>
+        <option value="marzo">Marzo</option>
+        <!-- Añade más meses según necesidad -->
+      </select>
+
+      <label for="monto-pago">Monto:</label>
+      <input type="number" id="monto-pago" placeholder="Cantidad a pagar" min="0" step="0.01" required />
+
+      <button type="submit">Registrar pago</button>
+    </form>
+
+    <a href="menu.html">← Volver al menú principal</a>
+  </div>
+
+  <script>
+    document.getElementById('form-pagos').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Pago registrado exitosamente.');
+      // Aquí puedes agregar lógica para guardar en Firebase o backend
+      this.reset();
+    });
+  </script>
+</body>
+</html>

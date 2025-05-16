@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reportar Problemáticas - Residencial Los Robles</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+    .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 5px #ccc; }
+    label { display: block; margin-top: 10px; }
+    input, textarea, select, button { width: 100%; padding: 8px; margin-top: 5px; border-radius: 5px; border: 1px solid #ccc; }
+    button { background-color: #007acc; color: white; border: none; cursor: pointer; margin-top: 15px; }
+    button:hover { background-color: #005fa3; }
+    a { display: block; margin-top: 20px; text-align: center; color: #007acc; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Reportar Problemática</h2>
+    <form id="form-reporte">
+      <label for="tipo-problema">Tipo de problemática:</label>
+      <select id="tipo-problema" required>
+        <option value="">Seleccione...</option>
+        <option value="baches">Baches</option>
+        <option value="iluminacion">Iluminación</option>
+        <option value="seguridad">Seguridad</option>
+        <option value="basura">Basura</option>
+        <option value="ruido">Ruido</option>
+        <option value="otro">Otro</option>
+      </select>
+
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" rows="4" placeholder="Describe la problemática..." required></textarea>
+
+      <label for="ubicacion">Ubicación (calle, número, área):</label>
+      <input type="text" id="ubicacion" placeholder="Ej. Calle 5 #123, Parque" required />
+
+      <button type="submit">Enviar reporte</button>
+    </form>
+
+    <a href="menu.html">← Volver al menú principal</a>
+  </div>
+
+  <script>
+    document.getElementById('form-reporte').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Reporte enviado. Gracias por ayudar a mejorar la comunidad.');
+      // Aquí puedes agregar lógica para guardar en Firebase o backend
+      this.reset();
+    });
+  </script>
+</body>
+</html>

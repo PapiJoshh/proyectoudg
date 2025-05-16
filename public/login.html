@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Residencial Los Robles</title>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <style>
+    body { font-family: Arial; background: #f4f4f4; padding: 20px; }
+    .container { max-width: 400px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input, button { width: 100%; padding: 10px; margin: 10px 0; }
+    button { background-color: #007acc; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #005fa3; }
+    a { display: block; text-align: center; margin-top: 10px; color: #007acc; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Iniciar sesión</h2>
+    <input type="email" id="login-email" placeholder="Correo electrónico" />
+    <input type="password" id="login-password" placeholder="Contraseña" />
+    <button id="login-btn">Entrar</button>
+    <p id="mensaje"></p>
+    <a href="registro.html">¿No tienes cuenta? Regístrate aquí</a>
+  </div>
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyDYFkiJ-RfAv0OWbL0DArYt1UNu9MJv_HE",
+      authDomain: "proyect-303ba.firebaseapp.com",
+      projectId: "proyect-303ba",
+      storageBucket: "proyect-303ba.appspot.com",
+      messagingSenderId: "1042939404816",
+      appId: "1:1042939404816:web:87f627803a04a4583e2095",
+      measurementId: "G-TH7V8674ZB"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    document.getElementById("login-btn").addEventListener("click", function () {
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => location.href = "menu.html")
+        .catch(err => document.getElementById("mensaje").innerText = err.message);
+    });
+  </script>
+</body>
+</html>
